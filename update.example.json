@@ -1,0 +1,17 @@
+{
+  "versionCode": 42,
+  "versionName": "6.18.13",
+  "apkUrl": "https://gitee.com/zhangfsen/mjy-update/releases/download/v6.18.13/MiaoJiZhang-v6.18.13.apk",
+  "notes": [
+    "适配 Android 15 状态栏和底部导航栏",
+    "固定 WebView 文字缩放，减少不同手机上的 UI 比例差异",
+    "桌面图标升级为 Adaptive Icon，修复部分手机图标白边",
+    "缩小桌面图标前景 LOGO，并同步旧系统回退图标",
+    "优化 Android 12+ 启动页过渡并恢复 WebView 默认字体缩放",
+    "系统启动页等待 WebView 就绪后交叉淡入，消除启动闪烁",
+    "修复个别 WebView 因启动切换函数未注册而卡在橙色页面的问题",
+    "使用系统启动页与同款原生品牌页连续过渡，移除 WebView 启动页依赖",
+    "系统页与原生页共用同一图标、背景色和中心位置，实现无感衔接",
+    "禁用启动主题强制深色处理，避免部分手机把白色 ¥ 显示成黑色"
+  ]
+}

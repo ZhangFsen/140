@@ -1,0 +1,18 @@
+秒记账固定签名说明
+
+本项目已内置固定签名文件：miaojizhang-stable-signing.jks
+
+用途：
+- 让 GitHub Actions / 本地构建出来的 APK 使用同一签名。
+- 后续版本只要包名不变、签名文件不变、versionCode 递增，就能覆盖安装并保留数据。
+
+当前配置：
+- applicationId: com.miaojizhang.app
+- versionCode: 42
+- versionName: 6.18.13
+- keyAlias: miaojizhang
+
+注意：
+- 请不要删除或替换 miaojizhang-stable-signing.jks。
+- 后续每次发新版，只改 versionCode / versionName，不要改 applicationId。
+- 如果旧版 APK 不是用这个签名打包的，第一次切换到本签名时无法直接覆盖，这是 Android 系统限制。
