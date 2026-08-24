@@ -1,0 +1,52 @@
+plugins { id "com.android.application" }
+
+android {
+    namespace "com.miaojizhang.app"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.miaojizhang.app"
+        minSdk 23
+        targetSdk 35
+        versionCode 42
+        versionName "6.18.13"
+        buildConfigField "String", "UPDATE_JSON_URL", '"https://gitee.com/zhangfsen/mjy-update/raw/master/update.json"'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        stable {
+            storeFile file("../miaojizhang-stable-signing.jks")
+            storePassword "miaojizhang2026"
+            keyAlias "miaojizhang"
+            keyPassword "miaojizhang2026"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.stable
+        }
+        release {
+            signingConfig signingConfigs.stable
+            minifyEnabled false
+        }
+    }
+
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            outputFileName = variant.buildType.name == "release"
+                    ? "MiaoJiZhang-v${variant.versionName}.apk"
+                    : "MiaoJiZhang-v${variant.versionName}-debug.apk"
+        }
+    }
+
+}
+
+dependencies {
+    implementation "androidx.core:core:1.13.1"
+    implementation "androidx.core:core-splashscreen:1.0.1"
+}
